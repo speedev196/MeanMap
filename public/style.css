@@ -1,0 +1,391 @@
+.browsehappy {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+
+/* Space out content a bit */
+
+body {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+
+/* Everything but the jumbotron gets side spacing for mobile first views */
+
+.header,
+.content,
+.footer {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+
+/* Custom page header */
+
+.header {
+    border-bottom: 1px solid #e5e5e5;
+}
+
+
+/* Make the masthead heading the same height as the navigation */
+
+.header h3 {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 40px;
+    padding-bottom: 19px;
+}
+
+@font-face {
+    font-family: 'Bubblegum Sans';
+    src: url('/font/BubblegumSans-Regular.otf');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.dt-sc-ico-content h4 a,
+.dt-sc-ico-content.type2 h4 a,
+.entry-title h3,
+.dt-sc-team h4,
+h3.widgettitle,
+.dt-sc-music-audio h5 a,
+input[type=text],
+input[type=email],
+textarea,
+.breadcrumb-section h1,
+.activity h4,
+.megamenu-child-container>ul.sub-menu>li>a {
+    /*  font-family: Bubblegum Sans, cursive; */
+    font-weight: normal;
+}
+
+
+/* Custom page footer */
+
+.footer {
+    color: #777;
+}
+
+.container-narrow>hr {
+    margin: 30px 0;
+}
+
+
+/* Supporting content */
+
+.content {
+    margin-top: 40px 0;
+}
+
+.content p+h4 {
+    margin-top: 28px;
+}
+
+.sidenav {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    background-color: white;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.sidenav a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s
+}
+
+.sidenav a:hover,
+.offcanvas a:focus {
+    color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+.imageView {
+    /*   margin-left: 10%; */
+    z-index: 5000;
+    background: white;
+    padding: 20px;
+    width: 230px;
+}
+
+.FLabel {
+    font-size: 20px;
+    margin-bottom: 0px;
+    font-weight: 100;
+}
+
+.tooltip1 {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip1 .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 115%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 1s;
+}
+
+.tooltip1 .tooltiptext::after {
+    content: "";
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent #555 transparent;
+}
+
+.tooltip1:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+.galleryitem {
+    display: inline;
+    margin: 0px;
+    padding: 0px;
+    /*  width: 250px; */
+    vertical-align: middle;
+}
+
+.fairyactive {
+    border: 2px solid;
+    border-color: #f13c3c;
+    color: #f13c3c;
+}
+
+.alert-danger {
+    color: #a94442;
+    background-color: inherit;
+}
+
+.alert {
+    padding: 15px;
+    padding-left: 20%;
+    margin-bottom: 0px;
+    border: 0px solid transparent;
+}
+
+.imagectx {
+    /*   height: 50px;*/
+    display: inline;
+    overflow: auto;
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    max-width: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.imagegallery {
+    display: block;
+    margin: 0px;
+    padding: 0px;
+    position: relative;
+    height: auto;
+    max-width: auto;
+    overflow-y: hidden;
+    overflow-x: auto;
+    word-wrap: normal;
+    white-space: nowrap;
+}
+
+.imagename {
+    display: inline;
+    font-size: 20px;
+}
+
+.imageclose {
+    font-size: 25px;
+    float: right;
+    color: burlywood;
+}
+
+.gallerycontent {
+    padding-left: 20px;
+}
+
+#title {
+    font-size: 40px;
+}
+
+.footerback {
+    background: black;
+    /*  height: 50px; */
+}
+
+@media screen and (max-width: 768px) {
+    #title {
+        font-size: 25px;
+    }
+    .footertext {
+        font-size: 10px;
+    }
+    .footerback {
+        background: black;
+        /*   height: 80px; */
+    }
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+    .sidenav a {
+        font-size: 18px;
+    }
+}
+
+
+/* Google Map! */
+
+#map {
+    height: 645px;
+    width: 645px;
+}
+
+#pac-input {
+    width: 100%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    background-color: white;
+    background-image: url('/img/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding: 12px 20px 12px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.post_input {
+    width: 100%;
+    margin-top: 10px;
+    /* box-sizing: border-box; */
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    font-size: 18px;
+    padding: 10px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+}
+
+.check {
+    opacity: 0.5;
+    color: #996;
+}
+
+.tag_div {
+    display: inline-block;
+    width: 40px;
+    margin: 1px;
+    margin-top: 15px;
+}
+
+
+/*
+::-webkit-input-placeholder {
+   
+    color: #dd2c00;
+}
+
+:-moz-placeholder {
+    color: #dd2c00;
+    opacity: 1;
+}
+
+::-moz-placeholder {
+    color: #dd2c00;
+    opacity: 1;
+}
+
+:-ms-input-placeholder {
+    color: #dd2c00;
+}
+*/
+
+@media (max-width: 768px) {
+    .col-sm-3 {
+        width: 25%;
+    }
+    .col-sm-6 {
+        width: 50%;
+    }
+    .col-sm-2 {
+        width: 16.67%;
+    }
+    .col-sm-1,
+    .col-sm-10,
+    .col-sm-11,
+    .col-sm-12,
+    .col-sm-2,
+    .col-sm-3,
+    .col-sm-4,
+    .col-sm-5,
+    .col-sm-6,
+    .col-sm-7,
+    .col-sm-8,
+    .col-sm-9 {
+        float: left;
+    }
+}
+
+
+/* Responsive: Portrait tablets and up */
+
+@media screen and (min-width: 768px) {
+    .container {
+        max-width: 1120px;
+    }
+    /* Remove the padding we set earlier */
+    .header,
+    .content,
+    .footer {
+        padding-left: 0;
+        padding-right: 0;
+    }
+    /* Space out the masthead */
+    .header {
+        margin-bottom: 30px;
+    }
+}

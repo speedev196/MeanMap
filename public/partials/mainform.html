@@ -1,0 +1,177 @@
+<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-top:0px; margin-bottom: 0px; background-color:#F8F8F8;">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" rel="home" href="#/" title="Aahan Krish's Blog - Homepage" style="margin-left:20px;padding: 8px 15px;">
+            <spam><img src="//cdn.shopify.com/s/files/1/1318/8373/t/8/assets/logo.png?16884956835765109817" style=" height:40px" /></spam>
+            <font color="#000000" style="margin-left:-40px; ">Fairy Finders</font>
+        </a>
+
+    </div>
+
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="">
+                    <p><span class="glyphicon glyphicon-globe"></span> Find a Fairy Walk</p>
+                </a>
+            </li>
+            <li>
+                <a href="" data-toggle="modal" data-target="#PostModal" ng-click="PostPage();">
+                    <p><span class="glyphicon glyphicon-globe"></span> Post a new Walk</p>
+                </a>
+            </li>
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+            <li>
+                <a href="">
+                    <p><span class="glyphicon glyphicon-envelope"></span> Contact us</p>
+                </a>
+            </li>
+            <li>
+                <a ng-if="!sign_status" href="" style="margin-right: 100px;" ng-click="SignIn();">
+                    <p><span class="glyphicon glyphicon-log-in"></span> Sign In</p>
+                </a>
+                <a ng-if="sign_status" href="" style="margin-right: 100px;" ng-click="SignOut();">
+                    <p><span class="glyphicon glyphicon-log-in"></span> Sign Out</p>
+                </a>
+            </li>
+        </ul>
+
+
+
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-top:0px; margin-bottom: 0px; background-color:#9CA1FF;">
+    <div class="navbar-header" style="float: center;padding: 30px;text-align: center;width: 100%;">
+
+
+        <a class="navbar-brand" style="float: initial;" href="">
+            <font id="title" style=" color: white;"> Find a place near you </font>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+
+
+    <div>
+        <div id="mySidenav" class="sidenav" style="overflow: auto;overflow-x: hidden; height: 480px;">
+            <a href="javascript:void(0)" class="closebtn" ng-if="closenav==true" ng-click="closeNav()">&#150;</a>
+            <a href="javascript:void(0)" class="closebtn" ng-if="closenav==false" ng-click="openNav()">&#8801;</a>
+
+            <input type="text" name="search" class="SearchBox" id="pac-input" placeholder="Auto-detect location">
+
+
+            <div class='myform row' ng-if="lists.length!=0" ng-repeat="item in lists">
+
+                <div class="col-sm-6 itemname" ng-click="onshow($event,item);" style="cursor: pointer;">
+                    <strong>{{item.name}}</strong>
+                    <p>distance {{item.distance}}km</p>
+                    <p><img src="/img/Like.png">{{item.likes}}</p>
+
+                </div>
+                <div class="col-sm-2 itemdesc">
+                    <a ng-href="{{item.direction}}" style="margin-left:-50px; font-size: 13px;"><img src="/img/direction.png">Directions</a>
+                </div>
+                <div class="col-sm-3" ng-click="onshow($event,item);" style="cursor: pointer;">
+                    <img ng-src="{{item.thumbnail}}" style="padding: 10px">
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+        <!--span-- style="font-size:30px;cursor:pointer" ng-click="openNav()" id="openNavSpan">&#9776;8801</span-->
+        <!--span style="font-size:30px;cursor:pointer" ng-click="openNav()" id="openNavSpan">&#8801;</span-->
+
+
+
+
+        <div class='imageView' ng-show='FormShow' id="imagediv" style="z-index:10; ">
+
+            <hearder>
+
+                <a href="" class="imageclose" ng-click="closeForm()">&times;</a>
+                <h3 class="imagename">{{list.name}}</h3>
+            </hearder>
+            </hr>
+            <div classs="gallerycontent" style="padding-left: 20px;">
+                <p>{{list.address}}</p>
+                <div class="tooltip1" ng-repeat="tag in list.tags">
+                    <img ng-src="{{'/img/tag/'+tag+'.png'}}" style="display: inline;margin: 0px;padding: 0px;width: 30px; ">
+                    <span class="tooltiptext">{{tag}}</span>
+                </div>
+                <br/>
+                <span style="font-size: 14px;">{{list.description}}</span>
+                <br/>
+                <span><img src="/img/Like.png">{{list.likes}}</span>
+                <a ng-href="{{list.direction}}" style=" padding-left: 70px;"><img src="/img/direction.png" style="width:25px;"></a>
+            </div>
+            <div class="imagegallery">
+                <div class="galleryitem" ng-repeat=" one in list.images">
+                    <a href="" data-toggle="modal" data-target="#modalImage" ng-click="modalShow(one);"><img ng-src="{{one}}" style="height: 150px;padding: 20px; "></a>
+                </div>
+            </div>
+
+        </div>
+
+
+
+        <div class="modal fade" id="modalImage" bn-modals ng-show="subview" ng-switch="subview">
+            <div class="modal-dialog">
+                <img ng-src="{{sel_img}}" style="width: 300px;" />
+
+            </div>
+        </div>
+
+
+
+
+
+    </div>
+
+
+    <div class="row content">
+
+        <div class="">
+
+            <span id="openNavSpan" class="closebtn" ng-click="closeNav()" style="font-size: 30px ; display:none;">&#8801;</span>
+
+            <div id="map" style="width: 100%;"></div>
+            <div id="right-panel"></div>
+
+        </div>
+
+    </div>
+
+
+</div>
+
+
+<div class="modal fade" id="PostModal" bn-modals ng-show="subview" ng-switch="subview">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 50%; left: 30%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title text-center">Post warning</h6>
+            </div>
+            <div class="modal-body" ng-controller="mainCtrl">
+                <div class="text-center">
+                    <p>You need SingIn to post.</p>
+                    <input type="submit" class="btn btn-green" data-dismiss="modal" value="OK">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

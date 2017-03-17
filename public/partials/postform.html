@@ -1,0 +1,131 @@
+<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-top:0px; margin-bottom: 0px; background-color:#F8F8F8;">
+
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+        <a class="navbar-brand" rel="home" href="#/main" title="Aahan Krish's Blog - Homepage" style="margin-left:20px;padding: 8px 15px;">
+            <spam><img src="//cdn.shopify.com/s/files/1/1318/8373/t/8/assets/logo.png?16884956835765109817" style=" height:40px" /></spam>
+            <font color="#000000" style="margin-left:-40px; ">Fairy Finders</font>
+        </a>
+
+    </div>
+
+
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="">
+                    <p><span class="glyphicon glyphicon-globe"></span> Find a Fairy Walk</p>
+                </a>
+            </li>
+
+        </ul>
+
+        <ul class="nav navbar-nav navbar-right" style="margin-right: 0px;">
+            <li>
+                <a href="">
+                    <p><span class="glyphicon glyphicon-envelope"></span> Contact us</p>
+                </a>
+            </li>
+            <li>
+                <a href="" style="margin-right: 100px;" ng-click="SignOut();">
+                    <p><span class="glyphicon glyphicon-log-in"></span> Sign Out</p>
+                </a>
+            </li>
+        </ul>
+
+
+
+    </div>
+</div>
+<div class="navbar navbar-inverse navbar-static-top" role="navigation" style="margin-top:0px; margin-bottom: 0px; background-color:#9CA1FF;">
+    <div class="navbar-header" style="float: center;padding: 30px;text-align: center;width: 100%;">
+
+
+        <a class="navbar-brand" style="float: initial;" href="">
+            <font id="title" style=" color: white;">I found it here... </font>
+        </a>
+    </div>
+</div>
+
+<div class="container">
+
+
+    <div>
+        <div id="mySidenav" class="sidenav" style="overflow: auto;overflow-x: hidden; height: 480px;">
+            <a href="javascript:void(0)" class="closebtn" ng-click="closeNav()">&times;</a>
+            <label class="FLabel" for="address-input">Address</label>
+            <input type="text" name="search" class="post_input" id="address-input" placeholder="Address" ng-model="address">
+            <label class="FLabel" for="placename">Place-Name</label>
+            <input type="text" class="post_input" id="placename" placeholder="Place Name" ng-model="name">
+            <label class="FLabel" for="">Features</label>
+            <div class="form-group">
+                <div ng-repeat="tag in tags" class="tag_div tooltip1">
+                    <label class="btn btn-primary " style="padding: 0px">
+                       <img ng-src="{{'/img/tag/'+tag.img+'.png'}}" class="img-thumbnail img-check" ng-click="chooseitem($event,tag)">
+                       <input type="checkbox" class="hidden" autocomplete="off" ng-model="tab.value">
+                     
+                     </label>
+                    <span class="tooltiptext">{{tag.img}}</span>
+                </div>
+
+            </div>
+
+            <label class="FLabel" for="post_desc">A little about it</label>
+            <textarea class="post_input" id="post_desc" ng-model="description" placeholder="Descriptoin"></textarea>
+
+            <div ng-if="images" id='FiltersList' class="imagectx" compile-data template="{{newTransaction}}">
+
+            </div>
+
+            <div s3-upload bucket="'gpsmap'" ng-model="files.first" s3-upload-options="{submitOnChange: true, getOptionsUri: '/uploadtoken',enableValidation :true}" do-upload="performUpload" ng-click='UploadFiles();'>
+
+            </div>
+            <button class="btn btn-primary" style="margin-left: 25%;display:inline" ng-click='NewPost();'> New </button>
+            <!--  <button class="btn btn-primary" style="margin-left:5%;" ng-click='UploadFiles();'> Upload Image </button>  -->
+
+            <button class="btn btn-primary " style="margin-left: 5%;" data-toggle="modal" data-target="#modalPostResult" ng-click='PostImage();'> POST </button>
+            <label>This is post page.Here you can choose/select Address and type place name.
+                Then select your tag icon and type some Description. 
+                Then you can choose image for uploading .
+                Then you click 'post' button to post new place.
+                You can click 'new' button for reposting.    
+            </label>
+
+        </div>
+
+        <span style="font-size:30px;cursor:pointer" ng-click="openNav()" id="openNavSpan">&#9776; </span>
+
+    </div>
+
+    <div class="row content">
+
+        <div class="">
+            <div id="map" style="width: 100%;"></div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalPostResult" bn-modals ng-show="subview" ng-switch="subview">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content" style="width: 50%; left: 30%;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title text-center">Post result</h6>
+            </div>
+            <div class="modal-body" ng-controller="postCtrl">
+                <div class="text-center">
+                    <p ng-if="ok_result">Your new place have posted successfully.</p>
+                    <p ng-if="!ok_result">Your new place not posted.</p>
+                    <input type="submit" class="btn btn-green" data-dismiss="modal" value="OK">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
