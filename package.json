@@ -13,7 +13,7 @@
         "jsonwebtoken": "^5.0.2",
         "lodash": "^4.15.0",
         "method-override": "~2.1.2",
-        "mongoose": "~4.1.0",
+        "mongoose": "latest",
         "morgan": "~1.2.2"
 
     }
